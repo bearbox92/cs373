@@ -61,8 +61,8 @@ Nothing to be done.
 
 
 % python3
-Python 3.5.2 (default, Aug 22 2016, 14:49:41)
-[GCC 4.8.4] on linux
+Python 3.5.2 (default, Nov 17 2016, 17:05:23)
+[GCC 5.4.0 20160609] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 
 
@@ -172,8 +172,8 @@ has the same effect as typing a particular string at the help> prompt.
 
 
 % python3
-Python 3.5.2 (default, Aug 22 2016, 14:49:41)
-[GCC 4.8.4] on linux
+Python 3.5.2 (default, Nov 17 2016, 17:05:23)
+[GCC 5.4.0 20160609] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 
 
@@ -204,8 +204,8 @@ Namespaces are one honking great idea -- let's do more of those!
 
 
 % python3
-Python 3.5.2 (default, Aug 22 2016, 14:49:41)
-[GCC 4.8.4] on linux
+Python 3.5.2 (default, Nov 17 2016, 17:05:23)
+[GCC 5.4.0 20160609] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 
 
