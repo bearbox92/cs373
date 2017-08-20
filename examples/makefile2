@@ -1,0 +1,116 @@
+.DEFAULT_GOAL := all
+
+FILES :=            \
+    UnitTests3T     \
+    Coverage1T      \
+    Coverage2T      \
+    Coverage3T      \
+    IsPrime1T       \
+    IsPrime2T       \
+    FactorialT      \
+    ReduceT         \
+    MapT            \
+    RangeIteratorT  \
+    RangeT          \
+    RMSET           \
+    DecoratorsT     \
+    ComplexT        \
+    SelectT         \
+    ProjectT        \
+    CrossJoinT      \
+    ThetaJoinT      \
+    NaturalJoinT
+
+ifeq ($(shell uname), Darwin)          # Apple
+    PYTHON   := python3
+    PIP      := pip
+    MYPY     := mypy
+    PYLINT   := pylint
+    COVERAGE := coverage
+    PYDOC    := pydoc
+    AUTOPEP8 := autopep8
+else ifeq ($(CI), true)                # Travis CI
+    PYTHON   := python3.5
+    PIP      := pip3.5
+    MYPY     := mypy
+    PYLINT   := pylint
+    COVERAGE := coverage-3.5
+    PYDOC    := pydoc3.5
+    AUTOPEP8 := autopep8
+else ifeq ($(shell uname -p), unknown) # Docker
+    PYTHON   := python3.5
+    PIP      := pip3.5
+    MYPY     := mypy
+    PYLINT   := pylint
+    COVERAGE := coverage-3.5
+    PYDOC    := pydoc3.5
+    AUTOPEP8 := autopep8
+else                                   # UTCS
+    PYTHON   := python3
+    PIP      := pip3
+    MYPY     := mypy
+    PYLINT   := pylint3
+    COVERAGE := coverage-3.5
+    PYDOC    := pydoc3.5
+    AUTOPEP8 := autopep8
+endif
+
+.pylintrc:
+	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
+
+RMSET.pyx: RMSE.py RMSET.py .pylintrc
+	-$(PYLINT) $<
+	-$(PYLINT) $(@:.pyx=.py)
+	$(PYTHON)  $(@:.pyx=.py)
+
+%T.pyx: %.py %T.py .pylintrc
+	-$(MYPY)    $<
+	-$(PYLINT)  $<
+	-$(MYPY)    $(@:.pyx=.py)
+	-$(PYLINT)  $(@:.pyx=.py)
+	$(COVERAGE) run    --branch $(@:.pyx=.py)
+	$(COVERAGE) report -m
+
+all:
+
+clean:
+	rm -f  .coverage
+	rm -f  .pylintrc
+	rm -rf __pycache__
+	rm -rf .mypy_cache
+
+run: $(FILES:=.pyx)
+
+travis:
+	make clean
+	ls -al
+	make run
+versions:
+	which cmake
+	cmake --version
+	@echo
+	which make
+	make --version
+	@echo
+	which git
+	git --version
+	@echo
+	which $(PYTHON)
+	$(PYTHON) --version
+	@echo
+	which $(PIP)
+	$(PIP) --version
+	@echo
+	which $(MYPY)
+	$(MYPY) --version
+	@echo
+	which $(PYLINT)
+	$(PYLINT) --version
+	@echo
+	which $(COVERAGE)
+	$(COVERAGE) --version
+	@echo
+	which $(PYDOC)
+	@echo
+	which $(AUTOPEP8)
+	$(AUTOPEP8) --version
