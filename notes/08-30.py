@@ -1,5 +1,5 @@
 # -----------
-# Wed, 30 Sep
+# Wed, 30 Aug
 # -----------
 
 """
@@ -29,14 +29,11 @@ HackerRank
 
 Google Cloud Platform (GCP) and NOT AWS this term
 
-work
-    daily quizzes on Canvas
-
-communication
+Communication
     questions NOT about you, ask it on Piazza
     questions about YOU, ask it on Canvas
 
-bio
+Bio
     Purdue & Illnois ('70s, physics)
     MIT (aero & astro)
     Stanford (aero & astro)
@@ -144,6 +141,7 @@ Regional Contest
     South Dakota
 
 Questions:
+    What's the class disclaimer?
     What's the line comment in Python?
     What's the block comment in Python?
     Who developed Python?
