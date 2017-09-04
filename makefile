@@ -38,6 +38,8 @@ all:
 
 clean:
 	cd examples; make clean
+	@echo
+	cd projects/collatz; make clean
 
 config:
 	git config -l
@@ -67,12 +69,15 @@ push:
 	git add examples
 	git add makefile
 	git add notes
+	git add projects/collatz
 	git commit -m "another commit"
 	git push
 	git status
 
 run:
 	cd examples; make run
+	@echo
+	cd projects/collatz; make run
 
 status:
 	make clean
@@ -95,9 +100,20 @@ sync:
     --include "Coverage3.py"                 \
     --exclude "*"                            \
     ../../examples/python/ examples
+	@rsync -r -t -u -v --delete             \
+    --include "Collatz.py"                  \
+    --include "RunCollatz.py"               \
+    --include "RunCollatz.in"               \
+    --include "RunCollatz.out"              \
+    --include "TestCollatz.py"              \
+    --include "TestCollatz.out"             \
+    --exclude "*"                           \
+    ../../projects/python/collatz/ projects/collatz
 
 travis:
 	cd examples; make travis
+	@echo
+	cd projects/collatz; make travis
 
 versions:
 	which cmake
