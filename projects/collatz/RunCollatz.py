@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-# pylint: disable = bad-whitespace
-# pylint: disable = missing-docstring
-
 # ------------------------------
 # projects/collatz/RunCollatz.py
 # Copyright (C) 2017

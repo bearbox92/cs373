@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-# ---------------------------
-# projects/collatz/Collatz.py
+# ----------------------------------
+# projects/python/collatz/Collatz.py
 # Copyright (C) 2017
 # Glenn P. Downing
-# ---------------------------
+# ----------------------------------
 
 # ------------
 # collatz_read

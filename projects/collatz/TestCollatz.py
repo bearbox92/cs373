@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-# -------------------------------
-# projects/collatz/TestCollatz.py
+# --------------------------------------
+# projects/python/collatz/TestCollatz.py
 # Copyright (C) 2017
 # Glenn P. Downing
-# -------------------------------
+# --------------------------------------
 
 # https://docs.python.org/3.4/reference/simple_stmts.html#grammar-token-assert_stmt
 
