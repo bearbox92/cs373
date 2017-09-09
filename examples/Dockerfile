@@ -2,6 +2,7 @@ FROM python:3.5.2
 
 RUN pip install --upgrade pip && \
     pip --version             && \
+    pip install autopep8      && \
     pip install coverage      && \
     pip install mypy          && \
     pip install numpy         && \
