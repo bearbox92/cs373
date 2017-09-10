@@ -1,6 +1,11 @@
 .DEFAULT_GOAL := all
 
-FILES :=            \
+FILES1 :=           \
+    Collatz         \
+    RunCollatz      \
+    TestCollatz
+
+FILES2 :=           \
     collatz-tests   \
     Collatz.html    \
     Collatz.log     \
@@ -62,23 +67,21 @@ Collatz.html: Collatz.py
 Collatz.log:
 	git log > Collatz.log
 
-RunCollatz.pyx: Collatz.py RunCollatz.py .pylintrc
-	-$(MYPY)   Collatz.py
-	-$(PYLINT) Collatz.py
-	-$(MYPY)   RunCollatz.py
-	-$(PYLINT) RunCollatz.py
-	$(PYTHON)  RunCollatz.py < RunCollatz.in > RunCollatz.tmp
+%: %.py .pylintrc
+	-$(MYPY)   $<
+	-$(PYLINT) $<
+
+RunCollatz.pyx: Collatz RunCollatz
+	$(PYTHON) RunCollatz.py < RunCollatz.in > RunCollatz.tmp
 	-diff RunCollatz.tmp RunCollatz.out
 
-TestCollatz.pyx: Collatz.py TestCollatz.py .pylintrc
-	-$(MYPY)     TestCollatz.py
-	-$(PYLINT)   TestCollatz.py
+TestCollatz.pyx: Collatz TestCollatz .pylintrc
 	-$(COVERAGE) run    --branch TestCollatz.py
 	-$(COVERAGE) report -m
 
-all:
+all: $(FILES1)
 
-check: $(FILES)
+check: $(FILES2)
 
 clean:
 	rm -f  .coverage

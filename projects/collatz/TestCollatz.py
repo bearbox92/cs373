@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+# pylint: disable = bad-whitespace
+# pylint: disable = invalid-name
+# pylint: disable = missing-docstring
+
 # --------------------------------------
 # projects/python/collatz/TestCollatz.py
 # Copyright (C) 2017
@@ -75,5 +79,5 @@ class TestCollatz (TestCase) :
 # main
 # ----
 
-if __name__ == "__main__" :
+if __name__ == "__main__" : #pragma: no cover
     main()

@@ -6,11 +6,13 @@
 # Glenn P. Downing
 # ----------------------------------
 
+from typing import IO, List
+
 # ------------
 # collatz_read
 # ------------
 
-def collatz_read (s) :
+def collatz_read (s: str) -> List[int] :
     """
     read two ints
     s a string
@@ -23,7 +25,7 @@ def collatz_read (s) :
 # collatz_eval
 # ------------
 
-def collatz_eval (i, j) :
+def collatz_eval (i: int, j: int) -> int :
     """
     i the beginning of the range, inclusive
     j the end       of the range, inclusive
@@ -36,7 +38,7 @@ def collatz_eval (i, j) :
 # collatz_print
 # -------------
 
-def collatz_print (w, i, j, v) :
+def collatz_print (w: IO[str], i: int, j: int, v: int) -> None :
     """
     print three ints
     w a writer
@@ -50,7 +52,7 @@ def collatz_print (w, i, j, v) :
 # collatz_solve
 # -------------
 
-def collatz_solve (r, w) :
+def collatz_solve (r: IO[str], w: IO[str]) :
     """
     r a reader
     w a writer

@@ -32,6 +32,11 @@ CMD bash
 
 
 
+% docker login
+...
+
+
+
 % docker push gpdowning/python
 ...
 
