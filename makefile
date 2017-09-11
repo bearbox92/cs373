@@ -98,6 +98,8 @@ sync:
     --include "Coverage1.py"                 \
     --include "Coverage2.py"                 \
     --include "Coverage3.py"                 \
+    --include "IsPrime1.py"                  \
+    --include "Exceptions.py"                \
     --exclude "*"                            \
     ../../examples/python/ examples
 	@rsync -r -t -u -v --delete             \
