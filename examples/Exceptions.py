@@ -37,8 +37,8 @@ def test () :
         assert e.args       ==     ("abc",)
     else :                                   # no exception vs. raised and handled, but not with break, continue, return
         assert False                         # pragma: no cover
-    finally :                                # always
-        pass                                 # even with break, continue, return
+    finally :                                # always, even with break, continue, return
+        pass
 
     assert isinstance(NameError,     type)
     assert isinstance(NameError,     object)
