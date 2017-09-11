@@ -5,7 +5,9 @@ FILES :=                    \
     UnitTests3              \
     Coverage1               \
     Coverage2               \
-    Coverage3
+    Coverage3               \
+    IsPrime1                \
+    Exceptions
 
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3

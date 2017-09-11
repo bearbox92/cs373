@@ -2,6 +2,7 @@
 
 # pylint: disable = missing-docstring
 # pylint: disable = pointless-string-statement
+# pylint: disable = bad-whitespace
 
 # --------
 # Hello.py
@@ -13,7 +14,8 @@
 # https://www.python.org/dev/peps/pep-0008/
 # http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html
 
-print("Nothing to be done.")
+if __name__ == "__main__" : # pragma: no cover
+    print("Nothing to be done.")
 
 """ #pragma: no cover
 Developed in 1989 by Guido van Rossum of the Netherlands, now at Dropbox.
