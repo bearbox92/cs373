@@ -33,11 +33,55 @@ IsPrime
     4. fix the code
 """
 
+# using return
+
+def f (...) :
+    ...
+    if (<something wrong>) :
+        return -1
+    ...
+
+def g (...) :
+    ...
+    x = f(...)
+    if x == -1 :
+        <something wrong>
+    ...
+
+...
+...g(...)...
+...
+
+# using global
+
+h = 0
+
+def f (...) :
+    global h
+    h = 0
+    ...
+    if (<something wrong>) :
+        h = -1
+        return ...
+    ...
+
+def g (...) :
+    ...
+    x = f(...)
+    if h == -1 :
+        <something wrong>
+    ...
+
+...
+...g(...)...
+...
+
+# using parameter
+
 def f (..., e2) :
     ...
-    assert <something not wrong>
     if (<something wrong>) :
-        e2[0] = <special value>
+        e2[0] = -1
         return ...
     ...
 
@@ -45,8 +89,8 @@ def g (...) :
     ...
     e = [0]
     x = f(..., e)
-    if (e[0] == <special value>) :
-        <do something>
+    if e[0] == -1 :
+        <something wrong>
     ...
 
 ...
@@ -55,18 +99,23 @@ def g (...) :
 
 """
 three avenues of communication
-    1. return
+    1. returns
     2. globals
     3. parameters
 
-assertions: because they'll halt the code
-returns, globals, parameters: they can be ignored
+assertions bad
+    because they'll halt the code
+
+returns, globals, parameters bad
+    because they can be ignored
 """
+
+# using exceptions
 
 def f (...) :
     ...
     if (<something wrong>) :
-        raise Child_of_E(...)
+        raise E(...)
     ...
 
 def g (...) :
@@ -75,37 +124,23 @@ def g (...) :
         ...
         x = f(...)
         ...
-    except (Child_of_E as e) :
-        <do something>
-        raise E(...) # handled in next higher try block
     except (E as e) :
-        <do something>
-    else : # only for (1)
+        <something wrong>
+    else :                # only for (1), below
         ...
-    finally : # always
+    finally :             # always
     ...
-"""
-1. no exception was raised
-2. exception was raised and handled
-3. exception was raised and not handled
-"""
+
 ...
 ...g(...)...
 ...
 
+"""
+1. no exception was raised
+2. exception was raised and handled
+3. exception was raised and not handled
 
+a raise in an except clause always goes to the next higher try block
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+except clauses of types in a class hierarchy must list children first
+"""
