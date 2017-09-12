@@ -143,4 +143,14 @@ def g (...) :
 a raise in an except clause always goes to the next higher try block
 
 except clauses of types in a class hierarchy must list children first
+
+
+Questions:
+    What were the two bugs in IsPrime1?
+    What was the inefficiency in IsPrime1?
+    In using a parameter for error handling, why was a list passed?
+    Could an int have been passed?
+    Could a tuple have been passed?
+    What's the diffence between code in an else clause and code after the try block?
+    What's the diffence between code in a finally clause and code after the try block?
 """
