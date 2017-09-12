@@ -99,6 +99,7 @@ sync:
     --include "Coverage2.py"                 \
     --include "Coverage3.py"                 \
     --include "IsPrime1.py"                  \
+    --include "IsPrime2.py"                  \
     --include "Exceptions.py"                \
     --exclude "*"                            \
     ../../examples/python/ examples
